@@ -11,7 +11,9 @@ file_path = 'coordinates.txt'
 with open(file_path, 'w') as file:
     # Write the very top point (north pole of the hemisphere)
     top_point = (center[0], center[1], center[2] + radius)
+    top_orientation = (180, 0, -90)
     file.write(f"xyz = ({top_point[0]}, {top_point[1]}, {top_point[2]})\n")
+    file.write(f"rpy = ({top_orientation[0]}, {top_orientation[1]}, {top_orientation[2]})\n")
     file.write("robot.move_to_target_in_cartesian(xyz, rpy)\n")
     file.write("time.sleep(1)\n")
     file.write("\n")
